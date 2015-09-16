@@ -128,7 +128,7 @@ Correo electrónico: & pablogarcia@ugr.es \tabularnewline
 
 \section{Título (provisional) de la tesis}
 
-La tesis tiene por título ``Soft computing techniques applied to corporate and personal security'', 
+La tesis tiene por título ``Soft computing techniques applied to corporate and personal security'', en español ``Aplicación de técnicas de Soft Computing a la securidad corporativa y personal'' o ``Sistema para la autoadaptación de reglas aplicadas a seguridad corporativa y personal''.
 
 
 \section{Introducción}
@@ -140,13 +140,15 @@ Sin embargo, si las compañías deciden adoptar un escenario tan cambiante como 
 
 En la tésis se propone una arquitectura, que sea fácilmente integrable en los servidores de una compañía, y que sea capaz de evolucionar las reglas incluídas en un conjunto de políticas de seguridad corporativas. El sistema alcanzaría este objetivo a través del aprendizaje del comportamiento que tuviesen los empleados o usuarios en el pasado y que supusiesen un incidente de seguridad. De este modo, el sistema tendría en cuenta las violaciones de seguridad conocidas porque han sido contempladas en las políticas de seguridad, pero también otros aspectos del comportamiento de los usuarios, observación del entorno, y valor de los activos, entre otros. Para ello, se van a aplicar diferentes técnicas.
 
-En primer lugar, se asume que las compañías almacenan la información sobre los incidentes de seguridad, junto con su \textit{contexto}. El término \textit{contexto} fue definido por Abowd et al. en \cite{abowd1999towards} como\footnote{En inglés en el artículo del autor} "cualquier información que pueda usarse para caracterizar la situación de una entidad". Así, y dado que esto puede significar el análisis de grandes cantidades de datos, es necesario emplear técnicas de minería de datos para la extracción de información de los datos de los que se parte \cite{DeVel2001}, ya sea de comportamientos no peligrosos como de los que causen incidentes de seguridad. Este proceso permitiría la construcción o entrenamiento de un clasificador para obtener dos resultados: primero, para poder usar el modelo del clasificador como posibles reglas a contrastar con las existentes, y segundo, para poder clasificar futuras situaciones o acciones de los usuarios. Por último, puesto que las reglas tienen estructura de árbol, donde las ramas serían las condiciones con los distintos nodos los valores, y las hojas las decisiones, se podrían aplicar Algoritmos Evolutivos (AEs) para optimizar su estructura \cite{de2002discovering}.
+Para resolver el problema, se asume que las compañías almacenan la información sobre los incidentes de seguridad, junto con su \textit{contexto}. El término \textit{contexto} fue definido por Abowd et al. en \cite{abowd1999towards} como\footnote{En inglés en el artículo del autor} "cualquier información que pueda usarse para caracterizar la situación de una entidad". Así, y dado que esto puede significar el análisis de grandes cantidades de datos, es necesario emplear técnicas de minería de datos para la extracción de información de los datos de los que se parte \cite{DeVel2001}, ya sea de comportamientos no peligrosos como de los que causen incidentes de seguridad. Este proceso permitiría la construcción o entrenamiento de un clasificador para obtener dos resultados: primero, para poder usar el modelo del clasificador como posibles reglas a contrastar con las existentes, y segundo, para poder clasificar futuras situaciones o acciones de los usuarios. Por último, puesto que las reglas tienen estructura de árbol, donde las ramas serían las condiciones con los distintos nodos los valores, y las hojas las decisiones, se podrían aplicar Algoritmos Evolutivos (AEs) para optimizar su estructura \cite{de2002discovering}.
 
-\subsection{Proyecto MUSES}
+\subsection{Antecedentes: Herramientas actuales y Proyecto MUSES}
 
 
 \section{Hipótesis y justificación}
 
+% Antares's halp:
+% La hipótesis es "que pregunta quieres responder tu tesis", los objetivos es "que pretendes lograr para responerlo" y la metología es "como pretendes hacerlo"
 
 \section{Objetivos}
 
@@ -170,7 +172,38 @@ Desarrollar una metodología (que se pueda vender a la gente) compuesta de vario
 
 \section{Metodología}
 
+El sistema que se propone desarrollar durante la tesis está pensado para ser instalado en el servidor de una compañía que desee añadir el proceso de refinamiento de reglas de seguridad. Este sistema puede incluso ser propuesto como extensión a alguna de las herramientas que ya existen en el mercado y que han sido comentadas en los antecedentes. La Figura \ref{fig:krs} muestra un resumen de los componentes de la arquitectura dentro del sistema que se propone.
 
+En cuanto al flujo de información entre componentes, cabe destacar que la \textit{base de datos} se refiere a la parte de información que la compañía retiene acerca de los eventos o acciones que se reciben por parte de los usuarios, de manera anonimizada. Por tanto, el sistema contribuye a la conservación de la privacidad, puesto que sólo accede a parte de la base de datos de la compañía. A continuación, se detallan los dos componentes principales: el componente donde se realiza la \textit{Minería de Datos}, y el componente que realiza el \textit{Tratamiento de Reglas}, creándolas o adaptándolas mediante Algoritmos Evolutivos.
+
+\begin{figure*}
+  \begin{center}
+    \includegraphics[width=0.75\textwidth]{./imgs/KRS.png}
+    \caption{Arquitectura a nivel de componentes y subcomponentes del sistema propuesto.}
+    \label{fig:krs}
+  \end{center}
+\end{figure*}
+
+\subsection{Minería de datos}
+\label{subsec:datamining}
+
+Este componente se encargará de consultar la base de datos, obtener la información que se considere relevante, y procesarla para borrar entradas que contengan errores o valores no válidos. Por ejemplo, las entradas en la base de datos que estén repetidas o que contengan muchos valores que no se han podido monitorizar son susceptibles de ser borradas en este proceso. Los datos de interés son los correspondientes a los eventos o acciones, junto con su contexto, producidos por los usuarios cuando interactúan con el sistema. El resultado de este proceso es un conjunto de datos formado por lo que se llaman ``patrones'' \cite{duran2007mineria} (en inglés \textit{pattern}), que a su vez son una serie de valores para los atributos o variables del evento que se han considerado importantes. En la fase de preprocesamiento, también se pueden añadir atributos a partir del estudio de las variables iniciales. Por ejemplo: se considera de interés la contraseña de acceso al sistema del usuario, pero no se toma la contraseña en sí con el fin de preservar su privacidad; en su lugar, se obtienen atributos como \textit{el número de caracteres en total}, \textit{porcentaje de números y letras}, o \textit{cantidad de letras mayúsculas}.
+Por tanto, el componente de preprocesamiento será el encargado de preparar los datos para la posterior aplicación de técnicas como la minería de patrones \cite{han2007frequent}. Esta técnica permite la identificación de patrones poco frecuentes o anómalos ya que estos son, en principio, sospechosos y por tanto de interés para el departamento de seguridad.
+
+El siguiente subcomponente se encarga de tareas como la selección de características \cite{guyon2003introduction}, la cual es una técnica que consiste en la elección de un subconjunto de variables o atributos (obtenidos de los eventos en el paso anterior) para poder reducir el tamaño del conjunto de datos. Este paso se realiza con el fin de mejorar el rendimiento del sistema y, en general, del proceso de clasificación, ya que la velocidad de procesamiento aumenta sin que se pierda porcentaje de acierto al clasificar.
+Seguidamente, este subcomponente aplica una serie de algoritmos de clasificación \cite{witten2005data}, esto es, usa los datos preprocesados para entrenar un modelo (o clasificador) capaz de asociar cada patrón del conjunto de datos con una clase (o etiqueta). Así, el clasificador puede asignar una clase, o en nuestro caso una ``decisión'', a futuros eventos.
+Además, los algoritmos de clasificación utilizados serán basados en reglas o árboles, para poder utilizar el clasificador entrenado por los datos obtenidos como conjunto de reglas nuevas, que será la entrada para el siguiente componente.
+
+\subsection{Tratamiento de reglas}
+\label{subsec:ruletreatment}
+
+Este módulo estará enfocado en la creación de nuevas reglas, además de trabajar con el conjunto de políticas existente. De este modo, realizará tres acciones diferentes e independientes sobre las reglas:
+
+\begin{itemize}
+  \item Primero, tomará el conjunto de reglas que se han obtenido de entrenar el clasificador en el paso anterior y las comparará con las existentes para comprobar si se ha obtenido alguna regla nueva. Este proceso se realiza una vez al día, cada día tomando todo el histórico de datos más los datos nuevos obtenidos.
+  \item Después, se hace una recomprobación de todas las reglas para evitar redundancias o reglas que se contradigan entre sí, manteniendo la coherencia en el conjunto de reglas.
+  \item Finalmente, aprovechando la estructura de árbol que tiene una regla, el sistema utilizará Programación Genética \cite{koza1992genetic}, de entre los Algoritmos Genéticos existentes, para optimizar estructuras basadas en árboles. Esto también contribuye a la comprensión de las nuevas reglas por parte del CSO (jefe del departamento de seguridad) \cite{tan2002mining}. De esta manera, el conjunto final de reglas se presentará al CSO, el cual podrá aceptarlas o rechazarlas, repercutiendo esta decisión a su vez en el sistema.
+\end{itemize}
 
 \section{Plan de trabajo}
 

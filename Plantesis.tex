@@ -166,58 +166,16 @@ caracterizar la situación de una entidad''. % sería mejor que usaras
 
 \subsection{Antecedentes: Herramientas actuales y Proyecto MUSES}
 
-En los últimos cuatro años se han desarrollado varias herramientas, enfocadas tanto a empresas como a usuarios particulares, que 
-% Many tools for companies, as well as for devices, which have adopted the BYOD have been released in the past four years. This way, and
-% more focused on the enterprise, tools such as IBM's Hosted Mobile
-% Device Security Management or Sophos Mobile Control offer the CSO ways to control the devices which
-% enter in the system, requiring users to employ strong passwords, for instance,
-% % enroll no me gusta
-% %Paloma -cambiado
-% and also to protect the employees data by means of data encryption and data
-% protection by having strong and secure passwords % at what level? - JJ
-% %Paloma - extendido
-% . Other tools for managing a BYOD situation, %for doing what? - JJ
-% % Paloma - extendido
-%  such as the one developed by Good's
-% Technology \cite{Good_tool}, adds to their features guidelines for the
-% CSOs to develop good CSPs. However, not one of the reviewed tools has
-% the ability of inferring new rules or refining the existing ones. 
-% 
-% On the device side, the most powerful solution to protect them in a BYOD situation
-%  % for doing what? BYOD?
-%                                 % - JJ
-%                                 % Paloma - extendido esto también
-% seems to be to directly
-% use a phone which has been developed with data security in mind such as the BlackPhone
-% \cite{Blackphone_site}. It has its own Android-based operating system,
-% called \textit{PrivatOS}, which includes a privacy-focused application
-% store (called \textit{Silent Store}) that takes care of the problem of
-% applications which ask for certain permissions that can lead, for instance, to personal data
-% leakage \cite{gangula2013survey}. This BlackPhone also allows a remote
-% % The problem you're trying to prevent is data loss? How big is that
-% % problem? - JJ
-% % Paloma - no sólamente. He añadido el "for instance" para que se vea que no es solo eso.
-% wiping of the data if the device is lost or stolen. The main
-% disadvantage of this solution is either the enterprise having to make
-% an investment and buy these smartphones to the employees (which, in
-% fact, is against the BYOD philosophy), or to make employees buy them,
-% so they cannot use the device they already have. %Paloma - añado esta frase por si no queda clara la comparativa
-% On the contrary, the system proposed in this work is designed as device-independent.
-% 
-% Finally, and considered as an extension of Android devices, two main
-% tools can be found in the market: Samsung KNOX for Samsung devices,
-% and Android Work by Google. %Quito esta cita. Cuando lo
-%                                 %convertas en un paper, deberías citar
-%                                 %no el proyecto en sí, sino un trabajo
-%                                 %que lo cite o compare o algo - JJ
-%  Both have most of the same advantages as the blackphone, with the
-% addition of an extension for CSOs. This means that Samsung, as well as
-% Google, provide security tools both at device and server side. More
-% precisely, Android work follows the way of working that Blackberry
-% phones started with Blackberry Balance, %Estoy quitando citas a
-%                                 %herramientas (que no trabajos) para
-%                                 %liberar espacio. 
-%   which stands up for having \textit{work} applications and \textit{personal} applications. This is called a ``dual-persona'' smartphone \cite{AndroidWork_review}. However, with regard to CSPs, neither of these tools specify ``self-adaptation' ' as a feature. They offer policy management, but still they do not analyse the system information for security rules evolution purposes.
+En los últimos cuatro años se han desarrollado varias herramientas, enfocadas tanto a empresas como a usuarios particulares, destinadas a ayudar a la adaptación a entornos BYOD. Así, teniendo como objetivo el mundo de la empresa, existen herramientas de compañías como IBM, IBM's Hosted Mobile Device Security Management, y Sophos, que ofrece Sophos Mobile Control. Ambas herramientas ofrecen distintas maneras al CSO de controlar los dispositivos que se registran en el sistema, pudiendo éste requerir a los usuarios el uso de contraseñas más seguras, por ejemplo, o siendo posible proteger los datos de los usuarios encriptando la base de datos.
+Otra herramienta con características a las dos anteriores es la que ofrece Good's Technology, con la diferencia de que además incorpora una serie de directrices para una elaboración correcta y efectiva de olíticas y reglas de seguridad.
+Sin embargo, ninguna de estas tres herramientas incorpora la habilidad de crear reglas de seguridad nuevas ni de adaptar las existentes como se propone en esta tesis.
+
+En cuanto a los dispositivos, parece lógica la solución adoptada por Silent Circle: la creación de un smartphone con el único objetivo de proteger los datos que tiene en él, llamado ``Blackphone'' \cite{Blackphone_site}. Este dispositivo incorpora un sistema operativo llamado \textit{PrivatOS} y que está basado en Android. Incluso tiene su propia tienda de aplicaciones, llamada \textit{Silent Store} y cuyo objetivo es maximizar la privacidad y la seguridad, puesto que los permisos que se le puedan conceder a determinadas aplicaciones durante la instalación puede dar lugar más tarde a filtración de datos personales \cite{gangula2013survey}. Otra de las características de este dispositivo es el borrado remoto, en el caso de que haya sido sustraído o se haya perdido.
+
+Esta solución tiene una clara desventaja, que puede formularse de dos maneras: o bien la empresa realiza una gran inversión para proporcionar estos terminales a sus empleados, lo cual va en contra de lo que sería la filosofía BYOD, o requieren que los empleados se lo compren, de modo que tampoco podrían usar los dispositivos que ya posean. Por contra, el sistema que se propone desarrollar durante la tesis está diseñado para ser independiente de la plataforma.
+
+Finalmente, y pudiendo ser consideradas como una extensión para móviles con sistema operativo Android, aparecen dos herramientas en el mercado: Samsung KNOX para dispositivos de este fabricante, y Android Work desarrollado por el propio Google. Ambas herramientas tienen las mismas ventajas que el Blackphone ya mencionado, incorporando además sendas aplicaciones de servidor para los CSO. Esto significa que tanto Samsung como Google ofrecen alternativas para ambos cliente y servidor. Es más, Android Work sigue la filosofía que ya comenzó a verse en los teléfonos de la marca Blackberry, con la herramienta Blackberry Balance, la cual consiste en tener por separado aplicaciones para el trabajo y personales. A los smartphones que adoptan esta práctica se les llama de ``dual-persona'' \cite{AndroidWork_review}. Sin embargo, en cuanto a políticas de seguridad, ninguna de las dos herramientas de Samsung o Google especifican la autoadaptación como característica. Sí ofrecen gestión de políticas existentes y aplicación de las mismas, pero aún así no parece que hagan un análisis de los datos del sistema con el objetivo de evolucionar un conjunto de reglas de seguridad inicial.
+
 % 
 % With respect to the application of Data Mining to extract information from big amounts of data, this has been done since the nineties \cite{agrawal1995mining, ester1996density}. More specifically, DM has been widely used for security purposes, as it can be applied in computer forensics. O. de Vel studied the application of DM techniques to identify authors of malicious e-mails in \cite{DeVel2001}, and for performing ``offender profiling'' in relation to computer security attacks in \cite{abraham2002investigative}. Yet, the system this paper proposed is focused in doing this kind of analysis but then to look for similarities with the new incoming events, so that a decision can be made in case they are dangerous. Classification methods are also applied in the security field. For instance, Blanzieri and Bryl \cite{blanzieri2008} present a review on a variety of spam filtering methods, and compare them, reaching the conclusion of that they are successful in general, but yet insufficient. This is why implementing a self-adaptive system such as the one this paper proposes can be good for other security applications and not only spam classification.
 % 

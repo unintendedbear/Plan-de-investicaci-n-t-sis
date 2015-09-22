@@ -135,7 +135,7 @@ para la autoadaptación de reglas aplicadas a seguridad corporativa y
 personal''. 
 
 
-\section{Hipótesis y justificación}
+\section{Hipótesis}
 
 % Antares's halp:
 % La hipótesis es "que pregunta quieres responder tu tesis", los objetivos es "que pretendes lograr para responerlo" y la metología es "como pretendes hacerlo"
@@ -171,7 +171,7 @@ et al. en \cite{abowd1999towards} como\footnote{En inglés en el
                                 % \verbatim o similar
  Así, y dado que esto puede significar el análisis de grandes cantidades de datos, es necesario emplear técnicas de minería de datos para la extracción de información de los datos de los que se parte \cite{DeVel2001}, ya sea de comportamientos no peligrosos como de los que causen incidentes de seguridad. Este proceso permitiría la construcción o entrenamiento de un clasificador para obtener dos resultados: primero, para poder usar el modelo del clasificador como posibles reglas a contrastar con las existentes, y segundo, para poder clasificar futuras situaciones o acciones de los usuarios. Por último, puesto que las reglas tienen estructura de árbol, donde las ramas serían las condiciones con los distintos nodos los valores, y las hojas las decisiones, se podrían aplicar Algoritmos Evolutivos (AEs) para optimizar su estructura \cite{de2002discovering}.
 
-\subsection{Antecedentes: Herramientas actuales y Proyecto MUSES}
+\subsection{Antecedentes: Herramientas actuales y Técnicas de Soft Computing}
 
 En los últimos cuatro años se han desarrollado varias herramientas, enfocadas tanto a empresas como a usuarios particulares, destinadas a ayudar a la adaptación a entornos BYOD. Así, teniendo como objetivo el mundo de la empresa, existen herramientas de compañías como IBM, IBM's Hosted Mobile Device Security Management, y Sophos, que ofrece Sophos Mobile Control. Ambas herramientas ofrecen distintas maneras al CSO de controlar los dispositivos que se registran en el sistema, pudiendo éste requerir a los usuarios el uso de contraseñas más seguras, por ejemplo, o siendo posible proteger los datos de los usuarios encriptando la base de datos.
 Otra herramienta con características a las dos anteriores es la que ofrece Good's Technology, con la diferencia de que además incorpora una serie de directrices para una elaboración correcta y efectiva de olíticas y reglas de seguridad.
@@ -183,6 +183,8 @@ Esta solución tiene una clara desventaja, que puede formularse de dos maneras: 
 
 Finalmente, y pudiendo ser consideradas como una extensión para móviles con sistema operativo Android, aparecen dos herramientas en el mercado: Samsung KNOX para dispositivos de este fabricante, y Android Work desarrollado por el propio Google. Ambas herramientas tienen las mismas ventajas que el Blackphone ya mencionado, incorporando además sendas aplicaciones de servidor para los CSO. Esto significa que tanto Samsung como Google ofrecen alternativas para ambos cliente y servidor. Es más, Android Work sigue la filosofía que ya comenzó a verse en los teléfonos de la marca Blackberry, con la herramienta Blackberry Balance, la cual consiste en tener por separado aplicaciones para el trabajo y personales. A los smartphones que adoptan esta práctica se les llama de ``dual-persona'' \cite{AndroidWork_review}. Sin embargo, en cuanto a políticas de seguridad, ninguna de las dos herramientas de Samsung o Google especifican la autoadaptación como característica. Sí ofrecen gestión de políticas existentes y aplicación de las mismas, pero aún así no parece que hagan un análisis de los datos del sistema con el objetivo de evolucionar un conjunto de reglas de seguridad inicial.
 
+Un primer estudio sobre las herramientas existentes ha sido publicado en \cite{de2015corporate}.
+
 % 
 % With respect to the application of Data Mining to extract information from big amounts of data, this has been done since the nineties \cite{agrawal1995mining, ester1996density}. More specifically, DM has been widely used for security purposes, as it can be applied in computer forensics. O. de Vel studied the application of DM techniques to identify authors of malicious e-mails in \cite{DeVel2001}, and for performing ``offender profiling'' in relation to computer security attacks in \cite{abraham2002investigative}. Yet, the system this paper proposed is focused in doing this kind of analysis but then to look for similarities with the new incoming events, so that a decision can be made in case they are dangerous. Classification methods are also applied in the security field. For instance, Blanzieri and Bryl \cite{blanzieri2008} present a review on a variety of spam filtering methods, and compare them, reaching the conclusion of that they are successful in general, but yet insufficient. This is why implementing a self-adaptive system such as the one this paper proposes can be good for other security applications and not only spam classification.
 % 
@@ -190,6 +192,28 @@ Finalmente, y pudiendo ser consideradas como una extensión para móviles con si
 % Then, taking into account how much information can be gathered from social networks, Danezis in \cite{inferring_policies_socialnetworks_09} defined a system able to infer privacy-related restrictions, enhancing user's privacy, by applying Machine Learning techniques on a social network environment. Again, this is another interesting approach. However, this paper focuses on CSPs, related to companies, more than on personal life of individuals.
 % 
 % In the same line, Lim et al. proposed a system \cite{lim2008mls, lim2008policy} which evolves a set of computer security policies by means of Genetic Programming, gathering knowledge from the user's feedback like in \cite{user-controllable_learning_08}. Furthermore, Suarez-Tangil et al. \cite{suarez2009automatic} take the same approach as Lim et al., but also including event correlation in. These two latter author's works are interesting for this paper, though they are not focused on company CSPs.
+
+\section{Justificación}
+
+La tesis continúa el trabajo comenzado durante el Proyecto europeo MUSES \footnote{https://www.musesproject.eu/} y el Trabajo Fin de Máster \cite{palomaTFM2014}, cuyos resultados han sido además publicados en \cite{mora14:urls}.
+
+En este primer estudio realizado durante el Trabajo Fin de Máster, se trabajó con un conjunto de datos reales y compuestos por una serie de peticiones HTTP que se realizaban desde una oficina. Los atributos que se obtenían de cada petición eran:
+
+\begin{itemize}
+  \item \texttt{http\_reply\_code}, el código de respuesta del servidor HTTP.
+  \item \texttt{http\_method}, la acción que se desea hacer sobre el recurso al que se quiere acceder.
+  \item \texttt{duration\_milliseconds}, tiempo que transcurre desde que se hace la petición al servidor hasta que éste responde.
+  \item \texttt{content\_type\_MCT}, el tipo de recurso principal al que se quiere acceder.
+  \item \texttt{content\_type}, el tipo de recurso específico al que se quiere acceder.
+  \item \texttt{server\_or\_cache\_address}, la dirección IP del servidor.
+  \item \texttt{time}, hora a la que se produce la petición.
+  \item \texttt{squid\_hierarchy}, indica si el siguiente salto es directamente al servidor o al proxy (Squid).
+  \item \texttt{bytes}, cantidad de información transferida.
+  \item \texttt{client\_address}, dirección IP del cliente. Esta característica se eliminó a posteriori, para evitar que se creasen reglas que filtrasen por cliente.
+  \item \texttt{URL}, el servidor principal al que se accede. Por ejemplo, \textit{ugr} en \textit{http://www.ugr.es}.
+\end{itemize}
+
+Cabe destacar el uso de métodos de clasificación que admitiesen tanto variables numéricas (\texttt{duration\_milliseconds}) como categóricas (\texttt{http\_method}), siendo de este tipo la mayoría.
 
 \section{Objetivos}
 

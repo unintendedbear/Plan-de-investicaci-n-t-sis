@@ -183,8 +183,6 @@ Esta solución tiene una clara desventaja, que puede formularse de dos maneras: 
 
 Finalmente, y pudiendo ser consideradas como una extensión para móviles con sistema operativo Android, aparecen dos herramientas en el mercado: Samsung KNOX para dispositivos de este fabricante, y Android Work desarrollado por el propio Google. Ambas herramientas tienen las mismas ventajas que el Blackphone ya mencionado, incorporando además sendas aplicaciones de servidor para los CSO. Esto significa que tanto Samsung como Google ofrecen alternativas para ambos cliente y servidor. Es más, Android Work sigue la filosofía que ya comenzó a verse en los teléfonos de la marca Blackberry, con la herramienta Blackberry Balance, la cual consiste en tener por separado aplicaciones para el trabajo y personales. A los smartphones que adoptan esta práctica se les llama de ``dual-persona'' \cite{AndroidWork_review}. Sin embargo, en cuanto a políticas de seguridad, ninguna de las dos herramientas de Samsung o Google especifican la autoadaptación como característica. Sí ofrecen gestión de políticas existentes y aplicación de las mismas, pero aún así no parece que hagan un análisis de los datos del sistema con el objetivo de evolucionar un conjunto de reglas de seguridad inicial.
 
-Un primer estudio sobre las herramientas existentes ha sido publicado en \cite{de2015corporate}.
-
 Con respecto al estado del arte en la aplicación de técnicas de minería de datos a la extracción de información a partir de grandes cantidades de datos, es una práctica que se lleva realizando desde los noventa \cite{agrawal1995mining, ester1996density}. Concretamente, el ``Data Mining'' (DM) se ha usado ampliamente en el campo de la seguridad, ya que es aplicable a los análisis forenses de ordenadores despues de que éstos hayan sido atacados. El autor O. de Vel estudia la aplicación de técnicas de DM para la identificación de autores de correos electrónicos maliciosos en \cite{DeVel2001}, así como para realizar perfiles de los atacantes a sistemas de seguricad en \cite{abraham2002investigative}. La metodología que se quiere proponer al término de la realización de la tesis utiliza técnicas de DM de la misma manera que los trabajos citados, para además poder buscar similitudes con comportamientos futuros y evitar posibles brechas de seguridad.
 
 Asimismo, los métodos de clasificación también se usan en el campo de la seguridad informática. Los autores Blanzieri y Bryl realizan en \cite{blanzieri2008} un análisis sobre una gran variedad de métodos de filtrado de spam y los compara, concluyendo que este tipo de métodos son efectivos en general, pero insuficientes. Este estudio acentúa la necesidad de que exista un sistema autoadaptativo que sea capaz de detectar todo tipo de amenazas de seguridad, no sólo el spam.
@@ -255,21 +253,47 @@ Por otra parte, gracias al trabajo realizado en el proyecto MUSES, se tiene acce
 
 \subsection{Primer Objetivo}
 
-Definir qué métricas son más interesantes. Esto permitirá que...
+El primer objetivo de la tesis es definir un conjunto de métricas en referencia a la detección de ataques de seguridad producidos por la insuficiencia o ineficacia de un conjunto de políticas establecido.
+
+Para ello, se definen tres sub objetivos:
+
+\begin{description}
+  \item[1.a] Realizar un estudio sobre las herramientas existentes relacionadas con un entorno BYOD.
+  \item[1.b] Comparativa de métricas usadas en la literatura: usos, ventajas, e inconvenientes de cada una.
+  \item[1.c] Definición de la métrica y justificación de la misma.
+\end{description}
+
+% ha sido publicado en \cite{de2015corporate}.
 
 \subsection{Segundo Objetivo}
 
-Comparar qué técnicas de Soft Computing son más adecuadas para un entorno como este.
+Comparar qué técnicas de Soft Computing y de Machine Learning son más adecuadas para un entorno BYOD.
+Para llevar a cabo el segundo objetivo, se definen los siguientes sub objetivos:
+
+\begin{description}
+  \item[2.a] Estudio del arte en técnicas Soft Computing aplicadas a BYOD. Este sub objetivo está relacionado con el sub objetivo 1.a.
+  \item[2.b] Relación entre la métrica escogida o definida en el primer objetivo con las técnicas estudiadas en el objetivo 2.a.
+  \item[2.c] Justificación de las técnicas escogidas respecto a la métrica escogida o definida en el primer objetivo.
+\end{description}
 
 \subsection{Tercer Objetivo}
 
-Desarrollar una metodología (que se pueda vender a la gente) compuesta de varios pasos:
+Desarrollar una metodología que se pueda implementar en sistemas reales, independientemente de la plataforma, y que esté compuesta de varios pasos:
+
 \begin{enumerate}
-  \item Pre-procesamiento de datos
-  \item Ejecución, comparativa y análisis
-  \item Validación de los resultados
+  \item Un adecuado pre-procesamiento de datos para asegurar un buen mantenimiento de las bases de datos y máximo rendimiento.
+  \item Entorno de ejecución completo.
+  \item Validación de los resultados.
 \end{enumerate}
 
+Para definir correctamente la metogología, se necesita completar los siguientes pasos o sub objetivos:
+
+\begin{description}
+  \item[3.a] Creación de un \textit{benchmark} para la experimentación a partir de datos reales. Este objetivo afecta a los pasos 1 y 2 de la metodología.
+  \item[3.b] Estudio de las técnicas de pre-procesamiento y elección de una o varias, justificando el por qué. Se requiere este objetivo para el primer paso de la metodología.
+  \item[3.c] Diseñar y definir el entorno de procesamiento con las técnicas escogidas en el segundo objetivo de la tesis. Este sub objetivo es necesario para definir el segundo paso de la metodología.
+  \item[3.d] Definir cómo se validan esos resultados: comparando las métricas de cada técnica entre sí, los porcentajes de acierto en clasificación, y extrayendo conocimiento a partir de los datos. Este sub objetivo es requerido para el último paso de la metodología.
+\end{description}
 
 \section{Metodología}
 

@@ -198,6 +198,8 @@ En la misma ínea, los autores Lim et al. proponen en \cite{lim2008mls, lim2008p
 
 La tesis continúa el trabajo comenzado durante el Proyecto europeo MUSES \footnote{https://www.musesproject.eu/} y el Trabajo Fin de Máster \cite{palomaTFM2014}, cuyos resultados han sido además publicados en \cite{mora14:urls}.
 
+El primer objetivo fue realizar un estudio sobre las listas blancas y negras de URLs, las cuales consisten en aquellas URLs que están permitidas (listas blancas) o que están denegadas (listas negras). La conclusión que se pretendía obtener era si era posible tratar este tipo de listas como reglas, aprender de información sobre tráfico de internet, y obtener nuevas reglas que no discriminasen sólo por la URL, que es la única condición en las reglas originales.
+
 En este primer estudio realizado durante el Trabajo Fin de Máster, se trabajó con un conjunto de datos reales y compuestos por una serie de peticiones HTTP que se realizaban desde una oficina. Los atributos que se obtenían de cada petición eran:
 
 \begin{itemize}
@@ -214,7 +216,40 @@ En este primer estudio realizado durante el Trabajo Fin de Máster, se trabajó 
   \item \texttt{URL}, el servidor principal al que se accede. Por ejemplo, \textit{ugr} en \textit{http://www.ugr.es}.
 \end{itemize}
 
-Cabe destacar el uso de métodos de clasificación que admitiesen tanto variables numéricas (\texttt{duration\_milliseconds}) como categóricas (\texttt{http\_method}), siendo de este tipo la mayoría.
+Cabe destacar el uso de métodos de clasificación que admitiesen tanto variables numéricas (\texttt{duration\_milliseconds}) como categóricas (\texttt{http\_method}), siendo de este tipo la mayoría. Se utilizaron algoritmos de clasificación basados en reglas y en árboles, además de distintos métodos de preprocesamiento como eliminación de entradas duplicadas o selección de características. Por último, se utilizaron diferentes configuraciones para el entrenamiento y prueba de los distintos clasificadores.
+
+Al término del trabajo, se demostró que con un preprocesamiento adecuado era posible utilizar los modelos que creaban los clasificadores para obtener reglas, ya que estos modelos describen las relaciones entre datos obtenidas por los distintos algoritmos de clasificación. Así, se obtuvieron reglas como las siguientes:
+
+\begin{small}
+\begin{verbatim}
+
+IF http_reply_code = "200"
+AND content_type = "application/json"
+AND time <= 33635000
+AND bytes <= 3921
+THEN ALLOW
+
+IF content_type = "text/plain"
+AND duration_milliseconds >= 7233.5
+THEN DENY
+
+IF content_type = "application/octet-stream"
+AND bytes <= 803
+THEN ALLOW
+
+IF bytes <= 1220
+AND time <= 33841000
+AND http_reply_code = "404"
+AND squid_hierarchy = DEFAULT_PARENT
+AND duration_milliseconds <= 233
+AND bytes <= 722
+THEN ALLOW
+\end{verbatim}
+\end{small}
+
+Que discriminan o aceptan en función de otros parámetros de la conexión, no sólamente por la URL a la que se quiere acceder.
+
+Por otra parte, gracias al trabajo realizado en el proyecto MUSES, se tiene acceso a una base de datos de eventos producidos por los empleados de una empresa en la que los usuarios utilizaban el sistema MUSES para BYOD en sus dispositivos. La constante captura de acciones, contexto de las mismas, y decisión del sistema de acuerdo a las reglas de seguridad existentes, forman una base de datos de miles de entradas para posteriormente ser procesadas de la manera que se propone en la tesis.
 
 \section{Objetivos}
 

@@ -152,6 +152,20 @@ Hasta ahora, la manera en la que trabajan los sistemas de seguridad es aplicando
 
 La hipótesis que se plantea es demostrar que con un adecuado procesamiento de la información recopilada acerca del contexto que rodea a un usuario interaccionando con un dispositivo, además del análisis del comportamiento en el pasado, es posible adaptar el conjunto de reglas de seguridad existente y detectar de manera más precisa futuras amenazas.
 
+Además, como resultado, se pretende desarrollar una arquitectura que sea fácilmente integrable por ser independiente de la plataforma, y que sea capaz de evolucionar las reglas incluídas en un conjunto de políticas de seguridad. El sistema alcanzaría este objetivo a través del aprendizaje del comportamiento que tuviesen los usuarios en el pasado y que supusiesen un incidente de seguridad, además del contexto en el que se situasen esos incidentes. De este modo, el sistema tendría en cuenta las violaciones de seguridad conocidas porque han sido contempladas en las políticas de seguridad, pero también otros aspectos del comportamiento de los usuarios, observación del entorno, y valor de los activos, por ejemplo. Para ello, se van a aplicar diferentes técnicas de Soft Computing y Machine Learning.
+
+Para resolver el problema, es necesario tener una base de datos con la información sobre las interacciones de los usuarios con los distintos dispositivos, junto con su
+\textit{contexto}. El término \textit{contexto} fue definido por Abowd
+et al. en \cite{abowd1999towards} como\footnote{En inglés en el
+  artículo del autor}:
+  
+ \begin{verbatim}
+    Cualquier información que pueda usarse para caracterizar la situación 
+    de una entidad.
+  \end{verbatim} % sería mejor que usaras
+                                % \verbatim o similar
+ Así, y dado que esto puede significar el análisis de grandes cantidades de datos, es necesario emplear técnicas de minería de datos para la extracción de información de los datos de los que se parte \cite{DeVel2001}, ya sea de comportamientos no peligrosos como de los que causen incidentes de seguridad. Este proceso permitiría la construcción o entrenamiento de un clasificador para obtener dos resultados: primero, para poder usar el modelo del clasificador como posibles reglas a contrastar con las existentes, y segundo, para poder clasificar futuras situaciones o acciones de los usuarios. Por último, puesto que las reglas tienen estructura de árbol, donde las ramas serían las condiciones con los distintos nodos los valores, y las hojas las decisiones, se podrían aplicar Algoritmos Evolutivos (AEs) para optimizar su estructura \cite{de2002discovering}.
+
 
 % La evolución desde los teléfonos móviles que se pueden llamar
 % ``tradicionales'' o de primeras generaciones, hasta lo que se conoce hoy

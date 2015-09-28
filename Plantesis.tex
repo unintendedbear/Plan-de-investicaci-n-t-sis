@@ -146,7 +146,7 @@ personal''.
 % para responder a esas preguntas son las tareas. Una tarea no es un
 % objetivo. 
 
-A medida que los dispositivos inteligentes van incorporándose a la vida cotidiana, se han ido creando fenómenos como el llamado \textit{Internet de las Cosas} \cite{kopetz2011internet} o el \textit{Bring Your Own Device} (BYOD) \cite{ballagas2004byod}. Debido a la constante evolución de este tipo de entornos, se crean nuevas amenazas de seguridad \cite{weber2010internet, gangula2013survey} que deben ser abordadas incluso a pesar de que no se conozcan con anterioridad.
+A medida que los dispositivos inteligentes van incorporándose a la vida cotidiana, se han ido creando fenómenos como el llamado \textit{Internet de las Cosas} (IoT) \cite{kopetz2011internet} o el \textit{Bring Your Own Device} (BYOD) \cite{ballagas2004byod}. Debido a la constante evolución de este tipo de entornos, se crean nuevas amenazas de seguridad \cite{weber2010internet, gangula2013survey} que deben ser abordadas incluso a pesar de que no se conozcan con anterioridad.
 
 Hasta ahora, la manera en la que trabajan los sistemas de seguridad es aplicando una serie de reglas de seguridad, que derivan a su vez de unas políticas de seguridad que están preestablecidas o predefinidas. Esto quiere decir que si aparece una amenaza que no ha sido contemplada en dichas políticas, los dispositivos no saben cómo responder ante ellas, y el ataque tiene éxito.
 
@@ -164,7 +164,7 @@ et al. en \cite{abowd1999towards} como\footnote{En inglés en el
     de una entidad.
   \end{verbatim} % sería mejor que usaras
                                 % \verbatim o similar
- Así, y dado que esto puede significar el análisis de grandes cantidades de datos, es necesario emplear técnicas de minería de datos para la extracción de información de los datos de los que se parte \cite{DeVel2001}, ya sea de comportamientos no peligrosos como de los que causen incidentes de seguridad. Este proceso permitiría la construcción o entrenamiento de un clasificador para obtener dos resultados: primero, para poder usar el modelo del clasificador como posibles reglas a contrastar con las existentes, y segundo, para poder clasificar futuras situaciones o acciones de los usuarios. Por último, puesto que las reglas tienen estructura de árbol, donde las ramas serían las condiciones con los distintos nodos los valores, y las hojas las decisiones, se podrían aplicar Algoritmos Evolutivos (AEs) para optimizar su estructura \cite{de2002discovering}.
+Así, y dado que esto puede significar el análisis de grandes cantidades de datos, es necesario emplear técnicas de minería de datos para la extracción de información de los datos de los que se parte \cite{DeVel2001}, ya sea de comportamientos no peligrosos como de los que causen incidentes de seguridad. Este proceso permitiría la construcción o entrenamiento de un clasificador para obtener dos resultados: primero, para poder usar el modelo del clasificador como posibles reglas a contrastar con las existentes, y segundo, para poder clasificar futuras situaciones o acciones de los usuarios. Por último, puesto que las reglas tienen estructura de árbol, donde las ramas serían las condiciones con los distintos nodos los valores, y las hojas las decisiones, se podrían aplicar Algoritmos Evolutivos (AEs) para optimizar su estructura \cite{de2002discovering}.
 
 
 % La evolución desde los teléfonos móviles que se pueden llamar
@@ -220,7 +220,7 @@ et al. en \cite{abowd1999towards} como\footnote{En inglés en el
 %                                 % \verbatim o similar
 %  Así, y dado que esto puede significar el análisis de grandes cantidades de datos, es necesario emplear técnicas de minería de datos para la extracción de información de los datos de los que se parte \cite{DeVel2001}, ya sea de comportamientos no peligrosos como de los que causen incidentes de seguridad. Este proceso permitiría la construcción o entrenamiento de un clasificador para obtener dos resultados: primero, para poder usar el modelo del clasificador como posibles reglas a contrastar con las existentes, y segundo, para poder clasificar futuras situaciones o acciones de los usuarios. Por último, puesto que las reglas tienen estructura de árbol, donde las ramas serían las condiciones con los distintos nodos los valores, y las hojas las decisiones, se podrían aplicar Algoritmos Evolutivos (AEs) para optimizar su estructura \cite{de2002discovering}.
 
-\subsection{Antecedentes: Herramientas actuales y Técnicas de Soft Computing}
+\subsection{Estado del arte}
 
 En los últimos cuatro años se han desarrollado varias herramientas, enfocadas tanto a empresas como a usuarios particulares, destinadas a ayudar a la adaptación a entornos BYOD. Así, teniendo como objetivo el mundo de la empresa, existen herramientas de compañías como IBM, IBM's Hosted Mobile Device Security Management, y Sophos, que ofrece Sophos Mobile Control. Ambas herramientas ofrecen distintas maneras al CSO de controlar los dispositivos que se registran en el sistema, pudiendo éste requerir a los usuarios el uso de contraseñas más seguras, por ejemplo, o siendo posible proteger los datos de los usuarios encriptando la base de datos.
 Otra herramienta con características a las dos anteriores es la que ofrece Good's Technology, con la diferencia de que además incorpora una serie de directrices para una elaboración correcta y efectiva de olíticas y reglas de seguridad.
@@ -231,6 +231,8 @@ En cuanto a los dispositivos, parece lógica la solución adoptada por Silent Ci
 Esta solución tiene una clara desventaja, que puede formularse de dos maneras: o bien la empresa realiza una gran inversión para proporcionar estos terminales a sus empleados, lo cual va en contra de lo que sería la filosofía BYOD, o requieren que los empleados se lo compren, de modo que tampoco podrían usar los dispositivos que ya posean. Por contra, el sistema que se propone desarrollar durante la tesis está diseñado para ser independiente de la plataforma.
 
 Finalmente, y pudiendo ser consideradas como una extensión para móviles con sistema operativo Android, aparecen dos herramientas en el mercado: Samsung KNOX para dispositivos de este fabricante, y Android Work desarrollado por el propio Google. Ambas herramientas tienen las mismas ventajas que el Blackphone ya mencionado, incorporando además sendas aplicaciones de servidor para los CSO. Esto significa que tanto Samsung como Google ofrecen alternativas para ambos cliente y servidor. Es más, Android Work sigue la filosofía que ya comenzó a verse en los teléfonos de la marca Blackberry, con la herramienta Blackberry Balance, la cual consiste en tener por separado aplicaciones para el trabajo y personales. A los smartphones que adoptan esta práctica se les llama de ``dual-persona'' \cite{AndroidWork_review}. Sin embargo, en cuanto a políticas de seguridad, ninguna de las dos herramientas de Samsung o Google especifican la autoadaptación como característica. Sí ofrecen gestión de políticas existentes y aplicación de las mismas, pero aún así no parece que hagan un análisis de los datos del sistema con el objetivo de evolucionar un conjunto de reglas de seguridad inicial.
+
+En el terreno de ``El internet de las cosas'', tanto en \cite{atzori2010internet} como en \cite{weber2010internet} de manera más extensa, hay pocas soluciones que sean innovadoras, sino que los esfuerzos residen en simplemente garantizar comunicaciones seguras, encriptación de los datos y autenticación. En \cite{perera2014context}, Perera et al. realizan un análisis de las técnicas que se pueden aplicar para el conocimiento del contexto en los entornos IoT, y recalcan que es un tema aún en desarrollo, pero considerado de gran importancia \cite{vermesan2011internet}.
 
 Con respecto al estado del arte en la aplicación de técnicas de minería de datos a la extracción de información a partir de grandes cantidades de datos, es una práctica que se lleva realizando desde los noventa \cite{agrawal1995mining, ester1996density}. Concretamente, el ``Data Mining'' (DM) se ha usado ampliamente en el campo de la seguridad, ya que es aplicable a los análisis forenses de ordenadores despues de que éstos hayan sido atacados. El autor O. de Vel estudia la aplicación de técnicas de DM para la identificación de autores de correos electrónicos maliciosos en \cite{DeVel2001}, así como para realizar perfiles de los atacantes a sistemas de seguricad en \cite{abraham2002investigative}. La metodología que se quiere proponer al término de la realización de la tesis utiliza técnicas de DM de la misma manera que los trabajos citados, para además poder buscar similitudes con comportamientos futuros y evitar posibles brechas de seguridad.
 
@@ -256,17 +258,9 @@ se obtenían de cada petición eran:
 % los recursos en categóricos y numéricos, si acaso, o únicos como una
 % IP. - JJ
 \begin{itemize}
-  \item \texttt{http\_reply\_code}, el código de respuesta del servidor HTTP.
-  \item \texttt{http\_method}, la acción que se desea hacer sobre el recurso al que se quiere acceder.
-  \item \texttt{duration\_milliseconds}, tiempo que transcurre desde que se hace la petición al servidor hasta que éste responde.
-  \item \texttt{content\_type\_MCT}, el tipo de recurso principal al que se quiere acceder.
-  \item \texttt{content\_type}, el tipo de recurso específico al que se quiere acceder.
-  \item \texttt{server\_or\_cache\_address}, la dirección IP del servidor.
-  \item \texttt{time}, hora a la que se produce la petición.
-  \item \texttt{squid\_hierarchy}, indica si el siguiente salto es directamente al servidor o al proxy (Squid).
-  \item \texttt{bytes}, cantidad de información transferida.
-  \item \texttt{client\_address}, dirección IP del cliente. Esta característica se eliminó a posteriori, para evitar que se creasen reglas que filtrasen por cliente.
-  \item \texttt{URL}, el servidor principal al que se accede. Por ejemplo, \textit{ugr} en \textit{http://www.ugr.es}.
+  \item Categóricos: \texttt{http\_reply\_code}, \texttt{http\_method}, \texttt{content\_type\_MCT}, \texttt{content\_type}, \texttt{squid\_hierarchy}, y la \texttt{URL}.
+  \item Numéricos: \texttt{duration\_milliseconds}, \texttt{time}, \texttt{bytes}.
+  \item Únicos: \texttt{server\_or\_cache\_address}, y \texttt{client\_address}
 \end{itemize}
 
 Cabe destacar el uso de métodos de clasificación que admitiesen tanto variables numéricas (\texttt{duration\_milliseconds}) como categóricas (\texttt{http\_method}), siendo de este tipo la mayoría. Se utilizaron algoritmos de clasificación basados en reglas y en árboles, además de distintos métodos de preprocesamiento como eliminación de entradas duplicadas o selección de características. Por último, se utilizaron diferentes configuraciones para el entrenamiento y prueba de los distintos clasificadores.
@@ -308,76 +302,87 @@ Por otra parte, gracias al trabajo realizado en el proyecto MUSES, se tiene acce
 
 \subsection{Primer Objetivo}
 
-El primer objetivo de la tesis es definir un conjunto de métricas en referencia a la detección de ataques de seguridad producidos por la insuficiencia o ineficacia de un conjunto de políticas establecido.
+Establecer una serie de entornos, o casos de uso, a contemplar para la posterior elección de métricas, técnicas, y forma de abordar los problemas.
 
-Para ello, se definen tres sub objetivos:
+Como se ha comentado en la sección anterior, ya se ha identificado y comenzado a tratar un entorno, el de BYOD, además de un caso de uso particular dentro de la empresa, como el uso de listas blancas y negras.
+
+Para cada entorno identificado, se ha de identificar también el contexto y los datos que se requieren para el análisis de cada uno.
+
+\subsection{Segundo Objetivo}
+
+El segundo objetivo de la tesis es definir un conjunto de métricas en referencia a la detección de ataques de seguridad producidos por la insuficiencia o ineficacia de un conjunto de políticas establecido. Las métricas deben responder a preguntas como ``¿Qué es lo que se quiere mejorar en cada uno de los entornos identificados en el objetivo uno?''.
+
+Para ello, se definen tres tareas:
 
 \begin{description}
-  \item[1.a] Realizar un estudio sobre las herramientas existentes
-    relacionadas con un entorno BYOD. % Esto no es un objetivo. Es una
+  \item[2.a] Realizar un estudio sobre el estado del arte
+    relacionado con los entornos identificados. % Esto no es un objetivo. Es una
                                 % tarea para alcanzarlo. 
-  \item[1.b] Comparativa de métricas usadas en la literatura: usos,
+  \item[2.b] Comparativa de métricas usadas en la literatura: usos,
     ventajas, e inconvenientes de cada una. %Tampoco.
-  \item[1.c] Definición de la métrica y justificación de la misma. % Esto sí lo es, porque repite el objetivo. así que se podría eliminar. 
+  \item[2.c] Definición de la métrica y justificación de la misma. % Esto sí lo es, porque repite el objetivo. así que se podría eliminar. 
 \end{description}
 
 % ha sido publicado en \cite{de2015corporate}.
 
-\subsection{Segundo Objetivo}
+\subsection{Tercer Objetivo}
 
 % Una comparación no es un objetivo. Primero, tienes que definir qué
 % significa "más adecuado para un entorno BYOD" y cómo vas a
 % medirlo. Segundo, tienes que decir cuál es el objetivo de esa
 % comparación. "Caracterizar el entorno BYOD y elegir las técnicas
 % soft computing más adecuadas para ello". - JJ
-Comparar qué técnicas de Soft Computing y de Machine Learning son más adecuadas para un entorno BYOD.
-Para llevar a cabo el segundo objetivo, se definen los siguientes sub objetivos:
+Una vez definido qué es lo más adecuado y lo menos deseable para cada entorno, el tercer objetivo es elegir qué técnicas de Soft Computing y de Machine Learning resultan las mejores para cada uno.
+Para llevar este tercer objetivo, se definen las siguientes tareas:
 
 \begin{description}
-  \item[2.a] Estudio del arte en técnicas Soft Computing aplicadas a
-    BYOD. Este sub objetivo está relacionado con el sub objetivo
-    1.a. % Tarea
-  \item[2.b] Relación entre la métrica escogida o definida en el
-    primer objetivo con las técnicas estudiadas en el objetivo
-    2.a. %Tarea. Además, ¿qué se va a hacer con la relación?
-  \item[2.c] Justificación de las técnicas escogidas respecto a la
-    métrica escogida o definida en el primer objetivo. % Tarea, aunque
+  \item[3.a] Estudio del arte en técnicas Soft Computing y Machine Learning aplicadas a
+    los entornos identificados. Este sub objetivo está relacionado con el primer objetivo y la tarea
+    2.a. % Tarea
+  \item[3.b] Relación entre la métrica escogida o definida en el
+    segundo objetivo con las técnicas estudiadas en la tarea 3.a. %Tarea. Además, ¿qué se va a hacer con la relación?
+  \item[3.c] Justificación de las técnicas escogidas respecto a la
+    métrica escogida o definida en el segundo objetivo. % Tarea, aunque
                                 % en realidad también sería parte del
                                 % objetivo.                         
 \end{description}
 
-\subsection{Tercer Objetivo}
+\subsection{Cuarto Objetivo}
 
-Desarrollar una metodología que se pueda implementar en sistemas
-reales, independientemente de la plataforma, y que esté compuesta de
-varios pasos: % Metodología ¿para qué? ¿Cómo caracterizas un sistema
+Proponer una metodología que defina qué datos procesar, y cómo procesarlos, para obtener la información necesaria para adaptar las reglas de seguridad existentes. Además, se pretende que la arquitectura derivada de esa metodología se pueda implementar en sistemas
+reales, independientemente de la plataforma.
+
+Para definir correctamente la metogología, se necesita completar las siguientes tareas:
+
+\begin{description}
+  \item[4.a] Creación de un \textit{benchmark} para la experimentación a partir de datos reales. Este objetivo afecta a los pasos 1 y 2 de la metodología.
+  \item[4.b] Estudio de las técnicas de pre-procesamiento y elección de una o varias, justificando el por qué. Se requiere este objetivo para el segundo paso de la metodología.
+  \item[4.c] Diseñar y definir el entorno de procesamiento con las técnicas escogidas en el segundo objetivo de la tesis. Este sub objetivo es necesario para definir el segundo paso de la metodología.
+  \item[4.d] Definir cómo se validan esos resultados: comparando las métricas de cada técnica entre sí, los porcentajes de acierto en clasificación, y extrayendo conocimiento a partir de los datos. Este sub objetivo es requerido para el último paso de la metodología.
+\end{description}
+
+La metodología estaría compuesta de
+varios pasos que irían detallados con las conclusiones sacadas del cumplimiento de los objetivos anteriores: % Metodología ¿para qué? ¿Cómo caracterizas un sistema
               % real? ¿No sería más bien este un segundo objetivo?
               % ¿qué pasa si la técnica del 2º objetivo no es adecuada
               % para un sistema real? 
 
 \begin{enumerate}
   \item Un adecuado pre-procesamiento de datos para asegurar un buen
-    mantenimiento de las bases de datos y máximo rendimiento. % Tarea
-  \item Entorno de ejecución completo. % Tarea
-  \item Validación de los resultados. % Tarea. Si no están validados
+    mantenimiento de las bases de datos y máximo rendimiento. Descripción de cómo preparar los datos antes de analizarlos. % Tarea
+  \item Entorno de ejecución completo, es decir, arquitectura y técnicas usadas. % Tarea
+  \item Validación de los resultados con técnicas propuestas, modo de uso e interpretación. % Tarea. Si no están validados
                                 % los resultados ¡no has alcanzado el
                                 % objetivo! - JJ
 \end{enumerate}
 
-Para definir correctamente la metogología, se necesita completar los siguientes pasos o sub objetivos:
-
-\begin{description}
-  \item[3.a] Creación de un \textit{benchmark} para la experimentación a partir de datos reales. Este objetivo afecta a los pasos 1 y 2 de la metodología.
-  \item[3.b] Estudio de las técnicas de pre-procesamiento y elección de una o varias, justificando el por qué. Se requiere este objetivo para el primer paso de la metodología.
-  \item[3.c] Diseñar y definir el entorno de procesamiento con las técnicas escogidas en el segundo objetivo de la tesis. Este sub objetivo es necesario para definir el segundo paso de la metodología.
-  \item[3.d] Definir cómo se validan esos resultados: comparando las métricas de cada técnica entre sí, los porcentajes de acierto en clasificación, y extrayendo conocimiento a partir de los datos. Este sub objetivo es requerido para el último paso de la metodología.
-\end{description}
-
 \section{Metodología}
 
-El sistema que se propone desarrollar durante la tesis está pensado para ser instalado en el servidor de una compañía que desee añadir el proceso de refinamiento de reglas de seguridad. Este sistema puede incluso ser propuesto como extensión a alguna de las herramientas que ya existen en el mercado y que han sido comentadas en los antecedentes. La Figura \ref{fig:krs} muestra un resumen de los componentes de la arquitectura dentro del sistema que se propone.
+Para poder alcanzar el objetivo de la tesis se propone seguir un modelo de desarrollo basado en casos de uso \cite{jacobson1992object}, y diseñar y construir un sistema que sea aplicable en general.
 
-En cuanto al flujo de información entre componentes, cabe destacar que la \textit{base de datos} se refiere a la parte de información que la compañía retiene acerca de los eventos o acciones que se reciben por parte de los usuarios, de manera anonimizada. Por tanto, el sistema contribuye a la conservación de la privacidad, puesto que sólo accede a parte de la base de datos de la compañía. A continuación, se detallan los dos componentes principales: el componente donde se realiza la \textit{Minería de Datos}, y el componente que realiza el \textit{Tratamiento de Reglas}, creándolas o adaptándolas mediante Algoritmos Evolutivos.
+El sistema que se propone desarrollar durante la tesis está pensado para añadir a los dispositivos inteligentes el proceso de refinamiento de reglas de seguridad. Este sistema puede incluso ser propuesto como extensión a alguna de las herramientas que ya existen en el mercado y que han sido comentadas en los antecedentes. El primer diseño, general, realizado se muestra en la Figura \ref{fig:krs}, que contiene un resumen de los componentes de la arquitectura dentro del sistema que se propone.
+
+En cuanto al flujo de información entre componentes, cabe destacar que la \textit{base de datos} se refiere a la parte de información que se retiene acerca de los eventos o acciones que se reciben por parte de los usuarios, de manera anonimizada. Por tanto, el sistema contribuye a la conservación de la privacidad, puesto que sólo accede a parte de la base de datos de la compañía. A continuación, se detallan los dos componentes principales: el componente donde se realiza la \textit{Minería de Datos}, y el componente que realiza el \textit{Tratamiento de Reglas}, creándolas o adaptándolas mediante Algoritmos Evolutivos.
 
 \begin{figure*}
   \begin{center}

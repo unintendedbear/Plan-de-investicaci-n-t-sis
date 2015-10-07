@@ -88,9 +88,29 @@ Se pueden poner referencias a pie\footnote{Parece que sí}
 Caracterizar una serie de entornos, o casos de uso, a contemplar para la posterior elección de métricas, técnicas, y forma de abordar los problemas.
 \end{block}
 
+Tareas del primer objetivo:
+
+\begin{description}
+  \item[1.a] Identificar los entornos que se quieren cubrir y los problemas a resolver en cada uno.
+  \item[1.b] Para cada entorno identificado, identificar también el contexto y los datos que se requieren para el análisis de cada uno.
+\end{description}
+
+\end{frame}
+
+\begin{frame}{Objetivos}
+
 \begin{block}{Segundo objetivo}
 El segundo objetivo de la tesis es definir un conjunto de métricas en referencia a la detección de ataques de seguridad producidos por la insuficiencia o ineficacia de un conjunto de políticas establecido.
 \end{block}
+
+Tareas del segundo objetivo:
+
+\begin{description}
+  \item[2.a] Realizar un estudio sobre el estado del arte
+    relacionado con los entornos identificados. 
+  \item[2.b] Comparativa de métricas usadas en la literatura: usos, ventajas, e inconvenientes de cada una.
+  \item[2.c] Definición de la métrica y justificación de la misma.
+\end{description}
 
 \end{frame}
 
@@ -100,33 +120,66 @@ El segundo objetivo de la tesis es definir un conjunto de métricas en referenci
 Elegir qué técnicas de Soft Computing y de Machine Learning resultan las mejores para cada uno.
 \end{block}
 
+Tareas del tercer objetivo:
+
+\begin{description}
+  \begin{small}
+  \item[3.a] Estudio del arte en técnicas Soft Computing y Machine Learning aplicadas a los entornos identificados. Este sub objetivo está relacionado con el primer objetivo y la tarea 2.a.
+  \item[3.b] Relación entre la métrica escogida o definida en el segundo objetivo con las técnicas estudiadas en la tarea 3.a.
+  \item[3.c] Justificación de las técnicas escogidas respecto a la métrica escogida o definida en el segundo objetivo.
+  \end{small}
+\end{description}
+
+\end{frame}
+
+\begin{frame}{Objetivos}
+
 \begin{block}{Cuarto objetivo}
 Proponer una metodología que defina qué datos procesar, y cómo procesarlos, para obtener la información necesaria para adaptar las reglas de seguridad existentes.
 \end{block}
 
-\end{frame}
+Tareas del cuarto objetivo:
 
-\subsection{Tareas del primer objetivo}
-
-\begin{frame}{Tareas del primer objetivo}
-
-\end{frame}
-
-\subsection{Tareas del segundo objetivo}
-
-\begin{frame}{Tareas del segundo objetivo}
+\begin{description}
+  \begin{small}
+  \item[4.a] Estudio de las técnicas de pre-procesamiento y elección de una o varias, justificando el por qué. Se requiere este objetivo para el segundo paso de la metodología.
+  \item[4.b] Creación de un \textit{benchmark} para la experimentación a partir de datos reales. Este objetivo afecta a los pasos 1 y 2 de la metodología.
+  \end{small}
+\end{description}
 
 \end{frame}
 
-\subsection{Tareas del tercer objetivo}
+\begin{frame}{Objetivos}
 
-\begin{frame}{Tareas del tercer objetivo}
+\begin{block}{Cuarto objetivo}
+Proponer una metodología que defina qué datos procesar, y cómo procesarlos, para obtener la información necesaria para adaptar las reglas de seguridad existentes.
+\end{block}
+
+Tareas del cuarto objetivo:
+
+\begin{description}
+  \begin{small}
+  \item[4.c] Diseñar y definir el entorno de procesamiento con las técnicas escogidas en el segundo objetivo de la tesis. Este sub objetivo es necesario para definir el segundo paso de la metodología.
+  \item[4.d] Definir cómo se validan esos resultados: comparando las métricas de cada técnica entre sí, los porcentajes de acierto en clasificación, y extrayendo conocimiento a partir de los datos.
+  \end{small}
+\end{description}
 
 \end{frame}
 
-\subsection{Tareas del cuarto objetivo}
+\begin{frame}{Metodología propuesta}
+La metodología estaría compuesta de varios pasos que irían detallados con las conclusiones sacadas del cumplimiento de los objetivos anteriores:
 
-\begin{frame}{Tareas del cuarto objetivo}
+\begin{enumerate}
+  \item Un adecuado pre-procesamiento de datos para asegurar un buen mantenimiento de las bases de datos y máximo rendimiento. Descripción de cómo preparar los datos antes de analizarlos.
+  \item Entorno de ejecución completo, es decir, arquitectura y técnicas usadas.
+  \item Validación de los resultados con técnicas propuestas, modo de uso e interpretación.
+\end{enumerate}
+
+\end{frame}
+
+\section{Metodología}
+
+\begin{frame}{Metodología}
 
 \end{frame}
 

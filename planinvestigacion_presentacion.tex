@@ -24,6 +24,16 @@
 \institute{Departamento de Arquitectura y Tecnología de los Computadores}
 \date{\today}
 
+\newcommand*{\vcenteredhbox}[1]{\begingroup
+\setbox0=\hbox{#1}\parbox{\wd0}{\box0}\endgroup}
+
+\newcommand{\ibmpic}{\includegraphics[width=3cm,height=3cm,keepaspectratio]{imgs/ibm.png}}
+\newcommand{\sophospic}{\includegraphics[width=3cm,height=3cm,keepaspectratio]{imgs/sophos.jpeg}}
+\newcommand{\goodpic}{\includegraphics[width=3cm,height=3cm,keepaspectratio]{imgs/good.png}}
+\newcommand{\bphonepic}{\includegraphics[width=3cm,height=3cm,keepaspectratio]{imgs/blackphone.jpg}}
+\newcommand{\knoxpic}{\includegraphics[width=3cm,height=3cm,keepaspectratio]{imgs/knox.png}}
+\newcommand{\androidwpic}{\includegraphics[width=3cm,height=3cm,keepaspectratio]{imgs/androidwork.jpg}}
+
 \begin{document}
 
 \begin{frame}
@@ -53,9 +63,9 @@ Big Data, Internet de las Cosas, Bring Your Own Device, La Nube, Redes Sociales
 \end{block}
 
 \begin{itemize}
-  \item Términos relacionados con la inserción de dispositivos inteligentes en la vida cotidiana.
-  \item Relacionados también con la posibilidad de obtener datos del \textbf{contexto} en el que se encuentran.
-  \begin{block}{Contexto}
+  \item<1-> Términos relacionados con la inserción de dispositivos inteligentes en la vida cotidiana.
+  \item<2-> Relacionados también con la posibilidad de obtener datos del \textbf{contexto} en el que se encuentran.
+  \begin{block}{Contexto}<3->
     \textit{Cualquier información que pueda usarse para caracterizar la situación de una entidad.}\footnote{{\scriptsize Abowd, G. D., Dey, A. K., Brown, P. J., Davies, N., Smith, M., \& Steggles, P. (1999). \textit{Towards a better understanding of context and context-awareness. In Handheld and ubiquitous computing} (Springer)}}
   \end{block}
 \end{itemize}
@@ -65,9 +75,10 @@ Big Data, Internet de las Cosas, Bring Your Own Device, La Nube, Redes Sociales
 \begin{frame}{Hipótesis}
 
 \begin{itemize}
-  \item Las amenazas evolucionan al mismo tiempo\footnote{\scriptsize Gangula, A., Ansari, S., \& Gondhalekar, M. (2013, November). \textit{Survey on Mobile Computing Security}. In Modelling Symposium (EMS), 2013 European (pp. 536-542). IEEE.}.
-  \item Sistemas de seguridad actuales: aplican unas reglas predefinidas.
-  \item ¿Qué ocurre con las amenazas no conocidas?
+  \item<1-> Las amenazas evolucionan al mismo tiempo\footnote{\scriptsize Gangula, A., Ansari, S., \& Gondhalekar, M. (2013, November). \textit{Survey on Mobile Computing Security}. In Modelling Symposium (EMS), 2013 European (pp. 536-542). IEEE.}.
+  \item<2-> Sistemas de seguridad actuales: aplican unas reglas predefinidas.
+  \item<3-> ¿Qué ocurre con las amenazas no conocidas?
+  \item<4-> Se presenta la necesidad de que las políticas de seguridad sean autoadaptativas.
 \end{itemize}
 
 \end{frame}
@@ -84,11 +95,14 @@ Demostrar que con un adecuado procesamiento de la información recopilada acerca
 
 \begin{frame}{Estado del arte}
 
-Se pueden poner referencias a pie\footnote{Parece que sí}
+Herramientas para afrontar la introducción del BYOD:
 
-\begin{itemize}
-  \item IoT ?
-\end{itemize}
+ \vcenteredhbox{\ibmpic}
+ \vcenteredhbox{\alt<2->{\sophospic}{\phantom{\sophospic}}}
+ \vcenteredhbox{\alt<3->{\goodpic}{\phantom{\goodpic}}}
+ \vcenteredhbox{\alt<4->{\bphonepic}{\phantom{\bphonepic}}}
+ \vcenteredhbox{\alt<5->{\knoxpic}{\phantom{\knoxpic}}}
+ \vcenteredhbox{\alt<6->{\androidwpic}{\phantom{\androidwpic}}}
 
 \end{frame}
 

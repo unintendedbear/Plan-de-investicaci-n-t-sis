@@ -72,8 +72,74 @@ Se pueden poner referencias a pie\footnote{Parece que sí}
 
 \begin{frame}{Justificación}
 
+Trabajo realizado hasta ahora:
+
 \begin{itemize}
-  \item TFM
+  \item Trabajo Fin de Máster. Estudio sobre la evolución de listas negras y blancas de URLs\footnote{Mora, A. M., De las Cuevas, P., \& Merelo, J. J. \textit{Going a Step Beyond the Black and White Lists for URL Accesses in the Enterprise by means of Categorical Classifiers}. ECTA 2014}.
+  \begin{itemize}
+    \item Reglas del tipo SI \textit{(url = xxxx)} ENTONCES \textit{[denegar, permitir]}
+    \item Objetivo: obtener reglas que dependan de otros factores, o atributos, de la conexión HTTP.
+    \item Atributos numéricos y categóricos
+    \item Comparación de distintas técnicas de clasificación y de distintas configuraciones de porcentajes de entrenamiento y test.
+    \item Resultados
+  \end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Justificación}
+
+Trabajo realizado hasta ahora:
+
+\begin{itemize}
+  \item Trabajo Fin de Máster. Estudio sobre la evolución de listas negras y blancas de URLs\footnote{Mora, A. M., De las Cuevas, P., \& Merelo, J. J. \textit{Going a Step Beyond the Black and White Lists for URL Accesses in the Enterprise by means of Categorical Classifiers}. ECTA 2014}.
+  \begin{itemize}
+    \item Resultados
+  \end{itemize}
+\end{itemize}
+
+\begin{columns}
+  \begin{column}{.5\textwidth}
+\begin{tiny}
+\begin{verbatim}
+(*)IF http_reply_code = "200"
+   AND content_type = "application/json"
+   AND time <= 33635000
+   AND bytes <= 3921
+   THEN ALLOW
+
+(*)IF content_type = "text/plain"
+   AND duration_milliseconds >= 7233.5
+   THEN DENY
+\end{verbatim}
+\end{tiny}
+  \end{column}
+  \begin{column}{.5\textwidth}
+\begin{tiny}
+\begin{verbatim}
+(*)IF content_type = "application/octet-stream"
+   AND bytes <= 803
+   THEN ALLOW
+
+(*)IF bytes <= 1220
+   AND time <= 33841000
+   AND http_reply_code = "404"
+   AND squid_hierarchy = DEFAULT_PARENT
+   AND duration_milliseconds <= 233
+   AND bytes <= 722
+   THEN ALLOW
+\end{verbatim}
+\end{tiny}
+  \end{column}
+\end{columns}
+
+\end{frame}
+
+\begin{frame}{Justificación}
+
+Trabajo realizado hasta ahora:
+
+\begin{itemize}
   \item MUSES
 \end{itemize}
 
@@ -166,7 +232,7 @@ Tareas del cuarto objetivo:
 
 \end{frame}
 
-\begin{frame}{Metodología propuesta}
+\begin{frame}{Metodología a proponer}
 La metodología estaría compuesta de varios pasos que irían detallados con las conclusiones sacadas del cumplimiento de los objetivos anteriores:
 
 \begin{enumerate}
@@ -177,16 +243,16 @@ La metodología estaría compuesta de varios pasos que irían detallados con las
 
 \end{frame}
 
-\section{Metodología}
+\section{Metodología de trabajo}
 
-\begin{frame}{Metodología}
+\begin{frame}{Metodología de trabajo}
 
 \end{frame}
 
 \section{Plan de trabajo}
 
 \begin{frame}{Plan de trabajo}
-Gantt
+\includegraphics[width=0.95\textwidth]{./imgs/especiedegantt.png}
 \end{frame}
 
 \subsection{Medios y financiación}

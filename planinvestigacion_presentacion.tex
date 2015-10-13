@@ -192,7 +192,7 @@ Trabajo realizado hasta ahora:
   \item<1-> Escenario BYOD estudiado en el proyecto MUSES.
   \item<2-> Estudio del estado del arte en herramientas que abordan la situación BYOD.\footnote{{\scriptsize de las Cuevas, P., Mora, A. M., Merelo, J. J., Castillo, P. A., García-Sánchez, P., \& Fernández-Ares, A. (2015). \textit{Corporate security solutions for BYOD: A novel user-centric and self-adaptive system}. Revista Computer Communications (Elsevier).}}
   \begin{itemize}
-    \item<3-> Es notable la falta de un sistema que evolucione las reglas de seguridad y no sólo las aplique.
+    \item<3-> No existe un sistema que evolucione reglas de seguridad.
   \end{itemize}
   \item<4-> Dataset de eventos producidos por los empleados de una empresa usando MUSES para BYOD en sus dispositivos.
   \begin{itemize}
@@ -215,7 +215,7 @@ Tareas del primer objetivo:
 
 \begin{description}
   \item[1.a]<1-> Identificar los entornos que se quieren cubrir y los problemas a resolver en cada uno.
-  \item[1.b]<2-> Para cada entorno identificado, identificar también el contexto y los datos que se requieren para el análisis de cada uno.
+  \item[1.b]<2-> Para cada uno, identificar el contexto y datos para el análisis.
 \end{description}
 
 \end{frame}
@@ -223,7 +223,7 @@ Tareas del primer objetivo:
 \begin{frame}{Objetivos}
 
 \begin{block}{Segundo objetivo}
-El segundo objetivo de la tesis es definir un conjunto de métricas en referencia a la detección de ataques de seguridad producidos por la insuficiencia o ineficacia de un conjunto de políticas establecido.
+Definir un conjunto de métricas en referencia a la detección de ataques de seguridad producidos por la insuficiencia o ineficacia de un conjunto de políticas establecido.
 \end{block}
 
 Tareas del segundo objetivo:
@@ -316,6 +316,38 @@ La metodología estaría compuesta de varios pasos que irían detallados con las
 
 \end{frame}
 
+\begin{frame}{Minería de datos}
+
+\begin{center}
+\includegraphics[width=0.6\textwidth]{./imgs/KRS1.png}
+\end{center}
+
+\begin{itemize}
+  \item<1-> Tratamiento de la base de datos, eliminando ruido y corrigiendo errores.
+  \item<2-> Aplicación de técnicas adicionales como selección de características.
+  \item<3-> Resultado: conjunto de patrones que van al clasificador + conjunto de reglas.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Tratamiento de reglas}
+
+\begin{center}
+\includegraphics[width=0.6\textwidth]{./imgs/KRS2.png}
+\end{center}
+
+\begin{itemize}
+  \item<1-> Comparación reglas del clasificador frente a existentes.
+  \item<2-> Mantenimiento del conjunto de reglas eliminando redundancias.
+  \item<3-> Aplicación de Programación genética aprovechando la estructura de árbol de una regla.
+  \begin{itemize}
+    \item Optimización.
+    \item Mejora la comprensión de los resultados.\footnote{Tan, K. C., Tay, A., Lee, T. H., & Heng, C. M. (2002). \textit{Mining multiple comprehensible classification rules using genetic programming}. CEC'02. IEEE.}
+  \end{itemize}
+\end{itemize}
+
+\end{frame}
+
 \section{Plan de trabajo}
 
 \begin{frame}{Plan de trabajo}
@@ -331,6 +363,11 @@ La metodología estaría compuesta de varios pasos que irían detallados con las
   \item Prevista una contratación al menos durante un año con un proyecto relacionado con la temática de la tesis.
 \end{itemize}
 
+\end{frame}
+
+\begin{frame}
+  Gracias por su atención
+  palomacd@ugr.es
 \end{frame}
 
 \end{document}
